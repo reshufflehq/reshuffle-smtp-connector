@@ -1,10 +1,10 @@
-# reshuffle-smtp-connector
+ # reshuffle-smtp-connector
 
-###Reshuffle SMTP Connector
+### Reshuffle SMTP Connector
 
 This connector provides the Reshuffle framework with SMTP email sending capabilities.
 
-####Configuration Options:
+#### Configuration Options:
 ```typescript
 interface SMTPConnectorOptions {
   fromName: string // The sender name to appear on outgoing emails
@@ -15,7 +15,7 @@ interface SMTPConnectorOptions {
   password?: string // Password to login to the SMTP host
 }
 ```
-####Actions
+#### Actions
 The SMTP connector provides the following actions:
 
 1. `send`
