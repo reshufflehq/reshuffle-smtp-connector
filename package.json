@@ -1,0 +1,49 @@
+{
+  "name": "reshuffle-smtp-connector",
+  "version": "0.0.1",
+  "description": "A Reshuffle SMTP connector",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "build:watch": "rimraf dist && tsc -w",
+    "lint": "eslint . --ext .ts,.js --fix",
+    "prepublishOnly": "rimraf dist && tsc",
+    "prepare": "rimraf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reshufflehq/reshuffle-smtp-connector.git"
+  },
+  "keywords": [
+    "Reshuffle",
+    "integrations",
+    "workflows",
+    "SMTP",
+    "email"
+  ],
+  "author": "Nimo Naamani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reshufflehq/reshuffle-smtp-connector/issues"
+  },
+  "homepage": "https://github.com/reshufflehq/reshuffle-smtp-connector#readme",
+  "dependencies": {
+    "nanoid": "^3.1.12",
+    "nodemailer": "^6.4.6",
+    "prettier": "^2.1.1",
+    "reshuffle-base-connector": "^0.0.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "@types/nodemailer": "^6.4.0",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
