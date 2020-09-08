@@ -22,7 +22,7 @@ interface EmailMessage {
   attachments?: Attachment[]
 }
 
-class SMTPConnector extends BaseConnector<SMTPConnectorOptions> {
+class SMTPConnector extends BaseConnector<SMTPConnectorOptions, null> {
   private transporter: Transporter | undefined
   private from: string | undefined
 
