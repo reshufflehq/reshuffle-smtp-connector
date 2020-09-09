@@ -1,6 +1,6 @@
 {
   "name": "reshuffle-smtp-connector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Reshuffle SMTP connector",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,8 +8,7 @@
     "build": "rimraf dist && tsc",
     "build:watch": "rimraf dist && tsc -w",
     "lint": "eslint . --ext .ts,.js --fix",
-    "prepublishOnly": "rimraf dist && tsc",
-    "prepare": "rimraf dist && tsc"
+    "prepublishOnly": "rimraf dist && tsc"
   },
   "repository": {
     "type": "git",
@@ -32,7 +31,7 @@
     "nanoid": "^3.1.12",
     "nodemailer": "^6.4.6",
     "prettier": "^2.1.1",
-    "reshuffle-base-connector": "^0.0.2"
+    "reshuffle-base-connector": "^0.0.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.10.1",
