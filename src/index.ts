@@ -26,7 +26,7 @@ class SMTPConnector extends BaseConnector<SMTPConnectorOptions, null> {
   private transporter: Transporter | undefined
   private from: string | undefined
 
-  constructor(app: Reshuffle, options: SMTPConnectorOptions, id: string) {
+  constructor(app: Reshuffle, options: SMTPConnectorOptions, id?: string) {
     super(app, options, id)
     this.updateOptions(options)
   }
