@@ -1,4 +1,4 @@
-import { BaseConnector } from 'reshuffle-base-connector'
+import { BaseConnector, Reshuffle } from 'reshuffle-base-connector'
 import nodemailer, { SentMessageInfo, Transporter } from 'nodemailer'
 
 export interface SMTPConnectorOptions {
@@ -26,8 +26,8 @@ class SMTPConnector extends BaseConnector<SMTPConnectorOptions, null> {
   private transporter: Transporter | undefined
   private from: string | undefined
 
-  constructor(options: SMTPConnectorOptions, id: string) {
-    super(options, id)
+  constructor(app: Reshuffle, options: SMTPConnectorOptions, id?: string) {
+    super(app, options, id)
     this.updateOptions(options)
   }
 
