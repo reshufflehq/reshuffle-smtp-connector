@@ -6,7 +6,52 @@
 
 ### Reshuffle SMTP Connector
 
-This connector provides the Reshuffle framework with SMTP email sending capabilities.
+
+*NPM Package:*  [reshuffle-smtp-connector](https://www.npmjs.com/package/reshuffle-smtp-connector)
+
+This package is a [Reshuffle](http://dev.reshuffle.com) connector that allows a developer to configure a transport that sends emails via SMTP.
+
+The following code creates an HTTP endpoint at `/ping`. Sending a `GET` request to this endpoint with the following pattern, 
+sends an email to the address in the `to` query parameter.
+
+```js
+const { HttpConnector, Reshuffle } = require('reshuffle')
+const { SMTPConnector } = require('reshuffle-smtp-connector')
+
+const app = new Reshuffle()
+const httpConnector = new HttpConnector(app)
+const smtpConnector = new SMTPConnector(
+  app,
+  {
+    username: 'superman',
+    password: 'hunter123',
+    host: 'email.some.com',
+    port: 587,
+    fromName: 'Spiderman III',
+    fromEmail: 'admin@superheros.com',
+  },
+  'connectors/smtp',
+)
+
+httpConnector.on(
+  {
+    method: 'GET',
+    path: '/ping',
+  },
+  (event) => {
+    event.getConnector('connectors/smtp').send({
+      to: event.req.query.to,
+      subject: 'Ping Email',
+      html: 'You have been pinged',
+    })
+  },
+)
+
+app.start()
+```
+
+Hitting `/ping?to=doc@exmaple.com` will send a ping email to `doc@example.com`
+
 
 #### Configuration Options:
 ```typescript
