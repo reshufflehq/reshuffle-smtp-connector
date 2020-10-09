@@ -38,8 +38,8 @@ httpConnector.on(
     method: 'GET',
     path: '/ping',
   },
-  (event) => {
-    event.getConnector('connectors/smtp').send({
+  (event, app) => {
+    app.getConnector('connectors/smtp').send({
       to: event.req.query.to,
       subject: 'Ping Email',
       html: 'You have been pinged',
