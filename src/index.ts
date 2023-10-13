@@ -45,6 +45,14 @@ class SMTPConnector extends BaseConnector<SMTPConnectorOptions, null> {
 
   async send(message: EmailMessage): Promise<SentMessageInfo | undefined> {
     if (!this.transporter) return
+    if (typeof message.to !== 'string' && !Array.isArray(message.to)) {
+      this.app.getLogger().error('Invalid recipient data type:', typeof message.to);
+      return;
+    }
+
+    message.to = typeof message.to === 'string'
+      ? message.to.split(',').map(email => email.trim())
+      : message.to;
     return this.transporter.sendMail({
       from: this.from,
       ...message,
