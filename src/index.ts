@@ -16,7 +16,7 @@ interface Attachment {
 }
 
 interface EmailMessage {
-  to: string
+  to: string | string[]
   subject: string
   html: string
   attachments?: Attachment[]
