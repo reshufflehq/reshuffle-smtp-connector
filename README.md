@@ -69,17 +69,21 @@ interface SMTPConnectorOptions {
 The SMTP connector provides the following actions:
 
 ##### send
-send an email message defined by the message parameter.
+Send an email message defined by the message parameter.
 SMTPConnector.send(message: EmailMessage)
 The EmailMessage type expects the following:
 
 ```typescript
 interface EmailMessage {
-  to: string // Recipient email address
+  to: string | string[] // Recipient email address(es)
   subject: string // Message subject
   html: string // message content
   attachments?: Attachment[]
 }
 ```
+The `to` field can have the following formats:
+1. A single email address inside a string object
+2. A comma-separated list of email addresses inside a single string object
+3. An array of email addresses (strings) 
 
 Example on how to use this connector can be [found here](https://github.com/reshufflehq/reshuffle/tree/master/examples/email).
